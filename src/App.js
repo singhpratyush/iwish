@@ -5,7 +5,7 @@ import {BrowserRouter, Switch} from 'react-router-dom';
 import {getStore} from './store';
 
 // Components
-import Header from './components/Header';
+import Header from './containers/header.container';
 
 class App extends React.Component {
   render() {

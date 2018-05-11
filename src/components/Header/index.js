@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import uikitStyles from '../../utils/uikitStyles';
+import SignInButton from './signInButton';
 
 class Header extends React.Component {
 	render() {
@@ -16,9 +18,16 @@ class Header extends React.Component {
 				<span className={[uikitStyles['uk-text-muted']].join(' ')}>
 					I wish that too!
 				</span>
+				<div className={[uikitStyles['uk-navbar-right']].join(' ')}>
+				{!this.props.isLoggedIn && <SignInButton/>}
+			</div>
 			</div>
 		</nav>
 	}
+}
+
+Header.propTypes = {
+	isLoggedIn: PropTypes.bool.isRequired,
 }
 
 export default Header;
