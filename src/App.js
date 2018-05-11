@@ -1,9 +1,7 @@
 import React from 'react';
-import {Provider} from 'react-redux';
-import {BrowserRouter, Switch} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import {getStore} from './store';
 import {listenToAuthState} from './utils/firebase';
 
 // Components
