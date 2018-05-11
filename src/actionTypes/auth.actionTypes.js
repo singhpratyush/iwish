@@ -1,0 +1,4 @@
+export default {
+	LOGIN_DONE: 'AUTH.LOGIN.DONE',
+	LOGOUT_DONE: 'AUTH.LOGOUT.DONE',
+};
