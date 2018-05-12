@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 import headerStyles from './css/header.css';
 import uikitStyles from '../../utils/uikitStyles';
-import SignInButton from './signInButton';
+import SignInButton from './SignInButton';
+import UserImage from './UserImage';
 
 class Header extends React.Component {
 	render() {
@@ -20,7 +21,7 @@ class Header extends React.Component {
 					I wish that too!
 				</span>
 				<div className={[uikitStyles['uk-navbar-right']].join(' ')}>
-					{!this.props.isLoggedIn && <SignInButton/>}
+					{this.props.auth.isLoggedIn ? <UserImage photoURL={this.props.auth.user.photoURL}/> : <SignInButton/>}
 				</div>
 			</div>
 		</nav>
@@ -28,7 +29,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-	isLoggedIn: PropTypes.bool.isRequired,
+	auth: PropTypes.object.isRequired,
 }
 
 export default Header;

@@ -1,0 +1,12 @@
+.userImage {
+	height: 48px;
+	margin: 16px 0;
+	border-radius: 50%;
+	border: 1px solid rgb(30, 135, 240);
+	transition: all 0.3s ease;
+}
+
+.userImage:hover {
+	box-shadow: 0px 0px 16px rgba(30, 135, 240, 0.87);
+	transition: all 0.3s ease;
+}
