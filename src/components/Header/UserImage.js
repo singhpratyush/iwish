@@ -3,14 +3,15 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import styles from './css/UserImage.css';
+import uikitStyles from '../../utils/uikitStyles';
 
 class UserImage extends React.Component {
 		render() {
 				return <Link to={`/@${this.props.uid}`}>
-						<img
-								src={this.props.photoURL}
-								className={[styles.userImage].join(' ')}
-								alt={'YOU'}/>
+					<img
+							src={this.props.photoURL}
+							className={[styles.userImage].join(' ')}
+							alt={'YOU'}/>
 				</Link>
 		}
 }

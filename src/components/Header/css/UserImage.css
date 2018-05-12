@@ -1,6 +1,6 @@
 .userImage {
 	height: 48px;
-	margin: 16px 0;
+	margin: 12px;
 	border-radius: 50%;
 	border: 1px solid rgb(30, 135, 240);
 	transition: all 0.3s ease;
