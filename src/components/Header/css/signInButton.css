@@ -1,0 +1,15 @@
+.signInContainer {
+	text-align: center;
+	height: 80px;
+	padding: 0 10px;
+	cursor: pointer;
+	display: flex;
+	flex-flow: column;
+	transition: all 0.3s ease;
+}
+
+.googleLogo {
+	height: 40px;
+	margin: auto;
+	transition: all 0.3s ease;
+}

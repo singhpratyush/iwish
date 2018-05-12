@@ -11,3 +11,11 @@ export const config = {
 
 export const listenToAuthState = (onLogIn, onLogOut) => firebase.auth()
 	.onAuthStateChanged(user => user ? onLogIn(user) : onLogOut());
+
+export const saveUser = user => {
+	firebase.database().ref(`/users/${user.uid}`).update({
+		displayName: user.displayName || '',
+		photoURL: user.photoURL || '',
+		uid: user.uid,
+	});
+}

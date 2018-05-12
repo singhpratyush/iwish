@@ -1,6 +1,9 @@
 import React from 'react';
 import * as firebase from 'firebase';
 
+import googleLogo from './GoogleLogo.png';
+import styles from './css/signInButton.css';
+
 class SignInButton extends React.Component {
 
 	onSignInClick() {
@@ -13,7 +16,9 @@ class SignInButton extends React.Component {
 	}
 
   render() {
-    return <div onClick={this.onSignInClick.bind(this)}>SIGN IN</div>
+    return <div onClick={this.onSignInClick.bind(this)} className={[styles.signInContainer].join(' ')}>
+			<img src={googleLogo} alt={'Google Sign In'} className={styles.googleLogo}/>
+		</div>
   }
 }
 
