@@ -14,7 +14,7 @@ class Header extends React.Component {
 			uikitStyles['uk-padding-remove-bottom'], headerStyles.headerContainer].join(' ')} uk-navbar='true'>
 			<div className={[uikitStyles['uk-navbar-left']].join(' ')}>
 				<Link to='/' className={[uikitStyles['uk-navbar-item'], uikitStyles['uk-logo'],
-					uikitStyles['uk-text-primary']].join(' ')}>
+					uikitStyles['uk-text-secondary']].join(' ')}>
 					WISHQUS
 				</Link>
 				<span className={[uikitStyles['uk-text-muted']].join(' ')}>

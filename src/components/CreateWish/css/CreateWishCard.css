@@ -1,0 +1,29 @@
+.wishInput {
+	border: 0px transparent;
+	background: transparent;
+	margin-bottom: -1px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.57);
+	flex-grow: 1;
+	outline: none;
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 24px;
+	transition: all 0.3s ease;
+}
+
+.wishInput:focus {
+	border-bottom: 2px solid black;
+	transition: all 0.3s ease;
+}
+
+.wishInput::-moz-placeholder,  {
+	color: rgba(0, 0, 0, 0.28);
+}
+
+.wishInput::-webkit-input-placeholder {
+	color: rgba(0, 0, 0, 0.28);
+}
+
+.userImage {
+	width: 48px;
+	border-radius: 50%;
+}
