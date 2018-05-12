@@ -1,0 +1,14 @@
+.userImage {
+	height: 48px;
+	width: 48px;
+	border-radius: 50%;
+}
+
+.textContainer {
+	font-size: 20x;
+};
+
+.wishText {
+	font-weight: 600;
+	
+}

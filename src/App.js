@@ -1,13 +1,13 @@
 import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import {listenToAuthState} from './utils/firebase';
-import uikitStyles from './utils/uikitStyles';
 
 // Components
 import Header from './containers/Header.container';
 import CreateWish from './containers/CreateWish.container';
+import UserProfile from './containers/UserProfile.container';
 
 class App extends React.Component {
 	constructor(props) {
@@ -19,9 +19,11 @@ class App extends React.Component {
     return <BrowserRouter>
 			<div>
 				<Header/>
-				<div className={[uikitStyles['uk-container']].join((' '))}>
-					{this.props.authState.isLoggedIn ? <CreateWish/> : 'Log in to wishqus.'}
-				</div>
+				<Switch>
+					<Route exact path='/' render={() =>
+						this.props.authState.isLoggedIn ? <CreateWish/> : ''}/>
+					<Route exact path='/@:uid' component={UserProfile}/>
+				</Switch>
 			</div>
 		</BrowserRouter>
   }

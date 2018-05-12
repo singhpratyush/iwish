@@ -21,7 +21,8 @@ class Header extends React.Component {
 					I wish that too!
 				</span>
 				<div className={[uikitStyles['uk-navbar-right']].join(' ')}>
-					{this.props.auth.isLoggedIn ? <UserImage photoURL={this.props.auth.user.photoURL}/> : <SignInButton/>}
+					{this.props.auth.isLoggedIn ? <UserImage photoURL={this.props.auth.user.photoURL} uid={this.props.auth.user.uid}/>
+						: <SignInButton/>}
 				</div>
 			</div>
 		</nav>

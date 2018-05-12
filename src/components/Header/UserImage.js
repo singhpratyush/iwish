@@ -6,7 +6,7 @@ import styles from './css/UserImage.css';
 
 class UserImage extends React.Component {
 		render() {
-				return <Link to='/'>
+				return <Link to={`/@${this.props.uid}`}>
 						<img
 								src={this.props.photoURL}
 								className={[styles.userImage].join(' ')}
@@ -16,7 +16,8 @@ class UserImage extends React.Component {
 }
 
 UserImage.propTypes = {
-		photoURL: PropTypes.string.isRequired
+		photoURL: PropTypes.string.isRequired,
+		uid: PropTypes.string.isRequired,
 };
 
 export default UserImage;

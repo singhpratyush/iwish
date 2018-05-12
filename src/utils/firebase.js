@@ -13,7 +13,7 @@ export const listenToAuthState = (onLogIn, onLogOut) => firebase.auth()
 	.onAuthStateChanged(user => user ? onLogIn(user) : onLogOut());
 
 export const saveUser = user => {
-	firebase.database().ref(`/users/${user.uid}`).update({
+	return firebase.database().ref(`/users/${user.uid}`).update({
 		displayName: user.displayName || '',
 		photoURL: user.photoURL || '',
 		uid: user.uid,
@@ -21,15 +21,24 @@ export const saveUser = user => {
 };
 
 export const createWish = text => {
+	let uid = firebase.auth().currentUser.uid;
 	let wishObj = {
 		user: {
-			uid: firebase.auth().currentUser.uid,
+			uid,
 			displayName: firebase.auth().currentUser.displayName || '',
 			photoURL: firebase.auth().currentUser.photoURL || '',
 		},
 		createdAt: (new Date()).getTime(),
 		text,
 	};
-	firebase.database().ref(`/wishes/`).push(wishObj);
-	firebase.database().ref(`/users/${firebase.auth().currentUser.uid}/wishes/`).push(wishObj);
+	let newKey = firebase.database().ref('/wishes/').push().key;
+	let updates = {};
+	updates[`/wishes/${newKey}`] = wishObj;
+	updates[`/users/${uid}/wishes/${newKey}/`] = wishObj;
+
+	return firebase.database().ref().update(updates);
 };
+
+export const getUserDetails = uid => {
+	return firebase.database().ref(`/users/${uid}/`);
+}

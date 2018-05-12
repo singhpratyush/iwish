@@ -1,26 +1,18 @@
 .wishInput {
 	border: 0px transparent;
 	background: transparent;
-	margin-bottom: -1px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.57);
 	flex-grow: 1;
 	outline: none;
-	color: rgba(0, 0, 0, 0.7);
-	font-size: 24px;
-	transition: all 0.3s ease;
-}
-
-.wishInput:focus {
-	border-bottom: 2px solid black;
-	transition: all 0.3s ease;
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.54);
 }
 
 .wishInput::-moz-placeholder,  {
-	color: rgba(0, 0, 0, 0.28);
+	color: #d4d4d4;
 }
 
 .wishInput::-webkit-input-placeholder {
-	color: rgba(0, 0, 0, 0.28);
+	color: #d4d4d4;
 }
 
 .userImage {
