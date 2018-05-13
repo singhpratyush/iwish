@@ -64,6 +64,7 @@ export const upwish = (wishId, authorUid, uid) => {
 
 export const unUpwish = (wishId, authorUid, uid) => {
 	return Promise.all([
-		firebase.database().ref(`/wishes/${wishId}/upwishes/${uid}`).remove()
+		firebase.database().ref(`/wishes/${wishId}/upwishes/${uid}`).remove(),
+		firebase.database().ref(`/users/${authorUid}/wishes/${wishId}/upwishes/${uid}`).remove()
 	]);
 }
