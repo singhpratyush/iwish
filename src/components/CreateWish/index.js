@@ -50,7 +50,7 @@ class CreateWish extends React.Component {
 				<div className={[uikitStyles['uk-flex']].join(' ')}
 				  style={{flexGrow: 1, backgroundColor: 'white', padding: '20px 16px'}}>
 					<input className={[styles.wishInput].join(' ')} placeholder={'I was a bit more sane.'} ref={this.wishInputRef}/>
-					<button style={{background: 'transparent', cursor: 'pointer', border: '0'}}>
+					<button style={{background: 'transparent', cursor: 'pointer', border: '0'}} onClick={this.onClickSubmit}>
 						=>
 					</button>
 				</div>

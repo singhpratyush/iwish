@@ -30,6 +30,8 @@ export const createWish = text => {
 		},
 		createdAt: (new Date()).getTime(),
 		text,
+		upwishCount: 0,
+		upvish: {},
 	};
 	let newKey = firebase.database().ref('/wishes/').push().key;
 	let updates = {};
@@ -41,4 +43,10 @@ export const createWish = text => {
 
 export const getUserDetails = uid => {
 	return firebase.database().ref(`/users/${uid}/`);
+}
+
+export const getTrendingWishes = uid => {
+	let now = new Date();
+	let dayAgo = now.setDate(now.getDate() - 1).getTime();
+	return firebase.database().ref('/wishes/').orderByChild('createdAt').startAt(dayAgo).orderByChild('upwishCount');
 }
