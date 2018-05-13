@@ -1,3 +1,4 @@
 export default {
 	CREATE_DONE: 'WISH.CREATE.DONE',
+	SET_WISHES_DONE: 'WISH.SET.DONE',
 };
