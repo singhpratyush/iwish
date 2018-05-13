@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import uikitStyles from '../../utils/uikitStyles';
 import styles from './css/CreateWishCard.css';
 import {colors} from '../../utils/styles';
+import {getWishSuggestions} from '../../utils/firebase';
 
 // TODO: User proper icon for "post" button
 class CreateWish extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {isPostable: false};
+		this.state = {isPostable: false, suggestion: 'I was a bit more sane!'};
 
 		this.wishInputRef = React.createRef();
 
@@ -21,6 +22,15 @@ class CreateWish extends React.Component {
 		this.wishInputRef.current.addEventListener('keyup', (event) => {
 			this.setState(this.wishInputRef.current.value.trim().length > 2 ? {...this.state, isPostable: true} : {...this.state, isPostable: false});
 		});
+		getWishSuggestions().once('value', snapshot => {
+			let val = snapshot.val();
+			let updateFunc = () => {
+				this.setState({...this.state, suggestion: val[Math.floor(Math.random() * val.length)]});
+				setTimeout(updateFunc, 3000);
+			}
+			updateFunc();
+		})
+
 	}
 
 	onClickSubmit(event) {
@@ -54,7 +64,7 @@ class CreateWish extends React.Component {
 				</div>
 				<div className={[uikitStyles['uk-flex']].join(' ')}
 				  style={{flexGrow: 1, backgroundColor: 'white', padding: '20px 16px'}}>
-					<input className={[styles.wishInput].join(' ')} placeholder={'I was a bit more sane.'} ref={this.wishInputRef}/>
+					<input className={[styles.wishInput].join(' ')} placeholder={this.state.suggestion} ref={this.wishInputRef}/>
 					<button style={{background: 'transparent', cursor: 'pointer', border: '0'}} onClick={this.onClickSubmit}>
 						=>
 					</button>
