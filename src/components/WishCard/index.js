@@ -1,18 +1,64 @@
 import React from 'react';
+import TimeAgo from 'react-time-ago';
 
 import styles from './css/WishCard.css';
 import uikitStyles from '../../utils/uikitStyles';
+import {colors} from '../../utils/styles';
+import * as firebaseUtils from '../../utils/firebase';
 
 class WishCard extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.upwishToggle = this.upwishToggle.bind(this);
+	}
+
+	upwish(unUpwish = false) {
+		let wishId = this.props.data.id;
+		let	authorUid = this.props.data.user.uid;
+		let	uid = this.props.auth.user.uid;
+		unUpwish ? firebaseUtils.unUpwish(wishId, authorUid, uid) : firebaseUtils.upwish(wishId, authorUid, uid);
+	}
+
+	upwishToggle() {
+		if (!this.props.auth.isLoggedIn) {
+			window.login();
+			return;
+		}
+		let upwishes = this.props.data.upwishes;
+		if (!upwishes) {
+			this.upwish();
+			return;
+		}
+		let userHasWished = upwishes[this.props.auth.user.uid];
+		this.upwish(userHasWished);
+	}
+
 	render() {
-		return <div className={[uikitStyles['uk-margin-large-bottom'], uikitStyles['uk-card-default'],
-		  uikitStyles['uk-padding'], styles.wishContainer].join(' ')}>
-			<div className={[uikitStyles['uk-margin-large-top'], uikitStyles['uk-margin-bottom']].join(' ')}>
-				<img src={this.props.data.user.photoURL} alt={''} className={[styles.userImage].join(' ')}/>
-				<span className={[uikitStyles['uk-margin-small-left']].join(' ')}>{this.props.data.user.displayName}</span>
+		let upwishes = this.props.data.upwishes || {};
+		let userHasWished = false;
+		if (this.props.auth.isLoggedIn) {
+			userHasWished = upwishes[this.props.auth.user.uid];
+		}
+		return <div className={[styles.wishContainer].join(' ')}>
+			<div style={{fontSize: '24px', lineHeight: '32px', minHeight: '64px'}}>
+				<span style={{color: colors.primary.textOn}}>I wish </span> {this.props.data.text}
 			</div>
-			<div className={[styles.textContainer].join(' ')}>
-				I wish <span className={styles.wishText}>{this.props.data.text}</span>.
+			<div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-between']].join(' ')}>
+				<div className={[uikitStyles['uk-flex']].join(' ')}
+					style={{backgroundColor: colors.primary.light, height: '40px'}}>
+					<div className={[styles.upwishButton, userHasWished ? styles.upwished : ''].join(' ')} onClick={this.upwishToggle}>
+						^
+					</div>
+					<div style={{fontSize: '12px', letterSpacing: '1.02px', color: colors.primary.textOn, padding: '11px 16px'}}>
+						<span>UPWISH</span>
+						<span style={{marginLeft: '8px'}}>{Object.keys(this.props.data.upwishes || {}).length}</span>
+					</div>
+				</div>
+				<div>
+					<TimeAgo style={{letterSpacing: '0.93px', fontSize: '12px', margin: '14px'}}>{this.props.data.createdAt}</TimeAgo>
+					<img src={this.props.data.user.photoURL} className={[styles.userImage].join(' ')} alt={'.'}/>
+				</div>
 			</div>
 		</div>
 	}

@@ -27,7 +27,7 @@ class App extends React.Component {
 					<Route exact path='/latest' render={() => <WishList category='trending' getDatabaseRef={getLatestWishes}/>}/>
 					<Route exact path='/@:uid' component={UserProfile}/>
 				</Switch>
-				{this.props.authState.isLoggedIn ? <CreateWish/> : ''}
+				<CreateWish/>
 			</div>
 		</BrowserRouter>
   }

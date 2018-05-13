@@ -30,8 +30,7 @@ export const createWish = text => {
 		},
 		createdAt: (new Date()).getTime(),
 		text,
-		upwishCount: 0,
-		upvish: {},
+		upwish: {},
 	};
 	let newKey = firebase.database().ref('/wishes/').push().key;
 	let updates = {};
@@ -47,10 +46,24 @@ export const getUserDetails = uid => {
 
 export const getTrendingWishes = () => {
 	let now = new Date();
-	let dayAgo = now.setDate(now.getDate() - 1).getTime();
-	return firebase.database().ref('/wishes/').orderByChild('createdAt').startAt(dayAgo).orderByChild('upwishCount');
+	now.setDate(now.getDate() - 1);
+	let dayAgo = now.getTime();
+	return firebase.database().ref('/wishes/').orderByChild('createdAt').startAt(dayAgo);
 }
 
 export const getLatestWishes = () => {
 	return firebase.database().ref('/wishes/').orderByChild('createdAt').limitToFirst(15);
+}
+
+export const upwish = (wishId, authorUid, uid) => {
+	let updates = {};
+	updates[`/wishes/${wishId}/upwishes/${uid}`] = true;
+	updates[`/users/${authorUid}/wishes/${wishId}/upwishes/${uid}`] = true;
+	return firebase.database().ref().update(updates);
+}
+
+export const unUpwish = (wishId, authorUid, uid) => {
+	return Promise.all([
+		firebase.database().ref(`/wishes/${wishId}/upwishes/${uid}`).remove()
+	]);
 }

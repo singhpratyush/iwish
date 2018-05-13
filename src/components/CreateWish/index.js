@@ -32,13 +32,18 @@ class CreateWish extends React.Component {
 			return;
 		}
 
+		if (!this.props.user) {
+			window.login();
+			return;
+		}
+
 		this.props.createWish.new(this.wishInputRef.current.value.trim());
 
 		this.wishInputRef.current.value = '';
 	}
 
 	render() {
-		return <div className={[uikitStyles['uk-position-bottom'], uikitStyles['uk-flex'], uikitStyles['uk-flex-center']].join(' ')}
+		return <div className={[uikitStyles['uk-position-bottom'], uikitStyles['uk-position-fixed'], uikitStyles['uk-flex'], uikitStyles['uk-flex-center']].join(' ')}
 			style={{backgroundColor: colors.primary.light, height: '88px'}}>
 			<div className={[uikitStyles['uk-width-1-1@s'], uikitStyles['uk-width-2-3@m'], uikitStyles['uk-width-1-2@l'],
 				uikitStyles['uk-flex']].join(' ')}

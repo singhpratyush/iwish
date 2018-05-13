@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import WishCard from '../WishCard';
+import uikitStyles from '../../utils/uikitStyles';
 
 class WishList extends React.Component {
 	componentDidMount() {
@@ -16,9 +17,13 @@ class WishList extends React.Component {
 	}
 
 	render() {
-		return <div>
-			{Object.keys(this.props.wishes).map(wishId =>
-				<WishCard data={this.props.wishes[wishId]} key={wishId}/>)}
+		return <div style={{margin: '32px 0'}}
+			className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-center']].join(' ')}>
+			<div className={[uikitStyles['uk-width-1-1@s'], uikitStyles['uk-width-2-3@m'], uikitStyles['uk-width-1-2@l']].join(' ')}
+				style={{backgroundColor: 'white'}}>
+				{Object.keys(this.props.wishes).map(wishId =>
+					<WishCard data={this.props.wishes[wishId]} key={wishId} auth={this.props.auth}/>)}
+			</div>
 		</div>
 	}
 }
@@ -29,7 +34,8 @@ WishList.propTypes = {
 	getDatabaseRef: PropTypes.func.isRequired,
 	// From container
 	wishActions: PropTypes.objectOf(PropTypes.func.isRequired).isRequired,
-	wishes: PropTypes.object.isRequired,
+	wishes: PropTypes.array.isRequired,
+	auth: PropTypes.object.isRequired,
 }
 
 export default WishList

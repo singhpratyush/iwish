@@ -1,0 +1,24 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".write": "$uid === auth.uid",
+        ".read": true,
+        "wishes": {
+          "$wishId": {
+          	"upwishes": {
+            	"$upwishUid": {
+	              ".read": true,
+	              ".write": "$upwishUid === auth.uid",
+	            }
+	          }            
+          }
+        }
+      }
+    },
+    "wishes": {
+      ".read": true,
+      ".write": "auth.uid !== null",
+    }
+  }
+}

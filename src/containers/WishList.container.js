@@ -5,7 +5,8 @@ import WishList from '../components/WishList';
 import {setWishes} from '../actions/wish.action';
 
 const mapStateToProps = (state, ownProps) => ({
-	wishes: state.wish[ownProps.category] || {},
+	wishes: state.wish[ownProps.category] || [],
+	auth: state.auth,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,6 +1,12 @@
+.wishContainer {
+	padding: 32px;
+	box-shadow: 0px 0px 1px 0px #eee;
+	border-radius: 4px;
+}
+
 .userImage {
-	height: 48px;
-	width: 48px;
+	height: 40px;
+	width: 40px;
 	border-radius: 50%;
 }
 
@@ -10,5 +16,27 @@
 
 .wishText {
 	font-weight: 600;
-	
+
+}
+
+.upwishButton {
+	height: 24px;
+	width: 24px;
+	padding: 8px;
+	cursor: pointer;
+	background-color: #b3e5fc;
+	transition: all 0.3s ease;
+	font-size: 23px;
+	text-align: center;
+	color: black;
+}
+
+.upwishButton:hover {
+	background-color: #82b3c9;
+	transition: all 0.3s ease;
+}
+
+.upwished {
+	background-color: #82b3c9;
+	transition: all 0.3s ease;
 }
