@@ -5,7 +5,8 @@ import WishCard from '../WishCard';
 import uikitStyles from '../../utils/uikitStyles';
 
 class WishList extends React.Component {
-	componentDidMount() {
+	componentWillReceiveProps() {
+		this.databaseRef && this.databaseRef.off();
 		this.databaseRef = this.props.getDatabaseRef();
 		this.databaseRef.on('value', snapshot => {
 			this.props.wishActions.setWishes(this.props.category, snapshot.val());
