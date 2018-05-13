@@ -68,3 +68,7 @@ export const unUpwish = (wishId, authorUid, uid) => {
 		firebase.database().ref(`/users/${authorUid}/wishes/${wishId}/upwishes/${uid}`).remove()
 	]);
 }
+
+export const getWishSuggestions = () => {
+	return firebase.database().ref('/suggestions');
+}
