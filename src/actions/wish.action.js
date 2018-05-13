@@ -17,12 +17,13 @@ export const setWishes = (type, wishObjects) => {
 		}));
 		switch (type) {
 			case 'trending':
-				sortedWish = wishList.sort((a, b) => a.upwishCount - b.upwishCount);
+				sortedWish = wishList.sort((a, b) => Object.keys(b.upwishes).length - Object.keys(a.upwishes).length);
 				break;
 			case 'latest':
-				sortedWish = wishList.sort((a, b) => a.createdAt - b.createdAt);
-			default:
+				sortedWish = wishList.sort((a, b) => b.createdAt - a.createdAt);
 				break;
+			default:
+				sortedWish = wishList;
 		}
 	}
 

@@ -65,7 +65,7 @@ class CreateWish extends React.Component {
 }
 
 CreateWish.propTypes = {
-	user: PropTypes.object.isRequired,
+	user: PropTypes.object,
 	createWish: PropTypes.object.isRequired,
 }
 
