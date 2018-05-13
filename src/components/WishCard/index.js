@@ -41,7 +41,7 @@ class WishCard extends React.Component {
 			userHasWished = upwishes[this.props.auth.user.uid];
 		}
 		return <div className={[styles.wishContainer].join(' ')}>
-			<div style={{fontSize: '24px', lineHeight: '32px', minHeight: '64px'}}>
+			<div style={{fontSize: '24px', lineHeight: '32px', minHeight: '64px', marginBottom: '24px'}}>
 				<span style={{color: colors.primary.textOn}}>I wish </span> {this.props.data.text}
 			</div>
 			<div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-between']].join(' ')}>
