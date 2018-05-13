@@ -10,8 +10,9 @@
             	"$upwishUid": {
 	              ".read": true,
 	              ".write": "$upwishUid === auth.uid",
-	            }
-	          }            
+	            },
+              ".indexOn": ["createdAt"],
+	          }
           }
         }
       }
@@ -19,6 +20,11 @@
     "wishes": {
       ".read": true,
       ".write": "auth.uid !== null",
+      ".indexOn": ["createdAt"],
+    },
+    "suggestions": {
+      ".read": true,
+      ".write": false,
     }
   }
 }
