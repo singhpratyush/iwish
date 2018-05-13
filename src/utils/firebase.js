@@ -45,7 +45,7 @@ export const getUserDetails = uid => {
 	return firebase.database().ref(`/users/${uid}/`);
 }
 
-export const getTrendingWishes = uid => {
+export const getTrendingWishes = () => {
 	let now = new Date();
 	let dayAgo = now.setDate(now.getDate() - 1).getTime();
 	return firebase.database().ref('/wishes/').orderByChild('createdAt').startAt(dayAgo).orderByChild('upwishCount');
