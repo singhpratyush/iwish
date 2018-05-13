@@ -1,13 +1,14 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import {listenToAuthState} from './utils/firebase';
+import {listenToAuthState, getTrendingWishes, getLatestWishes} from './utils/firebase';
 
 // Components
 import Header from './containers/Header.container';
 import CreateWish from './containers/CreateWish.container';
 import UserProfile from './containers/UserProfile.container';
+import WishList from './containers/WishList.container';
 
 class App extends React.Component {
 	constructor(props) {
@@ -20,10 +21,13 @@ class App extends React.Component {
 			<div>
 				<Header/>
 				<Switch>
-					<Route exact path='/' render={() =>
-						this.props.authState.isLoggedIn ? <CreateWish/> : ''}/>
+					<Route exact path='/' render={() => <Redirect to='/trending'/>}/>
+					{/* Type of list */}
+					<Route exact path='/trending' render={() => <WishList category='trending' getDatabaseRef={getTrendingWishes}/>}/>
+					<Route exact path='/latest' render={() => <WishList category='trending' getDatabaseRef={getLatestWishes}/>}/>
 					<Route exact path='/@:uid' component={UserProfile}/>
 				</Switch>
+				{this.props.authState.isLoggedIn ? <CreateWish/> : ''}
 			</div>
 		</BrowserRouter>
   }

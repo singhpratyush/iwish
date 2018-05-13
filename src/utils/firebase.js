@@ -50,3 +50,7 @@ export const getTrendingWishes = () => {
 	let dayAgo = now.setDate(now.getDate() - 1).getTime();
 	return firebase.database().ref('/wishes/').orderByChild('createdAt').startAt(dayAgo).orderByChild('upwishCount');
 }
+
+export const getLatestWishes = () => {
+	return firebase.database().ref('/wishes/').orderByChild('createdAt').limitToFirst(15);
+}
