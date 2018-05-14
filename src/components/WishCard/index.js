@@ -1,5 +1,6 @@
 import React from 'react';
 import TimeAgo from 'react-time-ago';
+import {Link} from 'react-router-dom';
 
 import styles from './css/WishCard.css';
 import uikitStyles from '../../utils/uikitStyles';
@@ -58,7 +59,9 @@ class WishCard extends React.Component {
 				</div>
 				<div>
 					<TimeAgo style={{letterSpacing: '0.93px', fontSize: '12px', margin: '14px'}}>{this.props.data.createdAt}</TimeAgo>
-					<img src={this.props.data.user.photoURL} className={[styles.userImage].join(' ')} alt={'.'}/>
+					<Link to={`/@${this.props.data.user.uid}`}>
+						<img src={this.props.data.user.photoURL} className={[styles.userImage].join(' ')} alt={'.'}/>
+					</Link>
 				</div>
 			</div>
 		</div>
