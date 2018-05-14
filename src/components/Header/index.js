@@ -7,6 +7,20 @@ import uikitStyles from '../../utils/uikitStyles';
 import {colors} from '../../utils/styles';
 
 class Header extends React.Component {
+
+	constructor(props) {
+		super(props);
+
+		this.checkSignIn = this.checkSignIn.bind(this);
+	}
+
+	checkSignIn(event) {
+		if (!this.props.auth.isLoggedIn) {
+			event.preventDefault();
+			window.login();
+		}
+	}
+
 	render() {
 		return <div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-center'], styles.headerContainer].join(' ')}
 			style={{backgroundColor: colors.primary.base}}>
@@ -16,8 +30,9 @@ class Header extends React.Component {
 			<Link to={'/latest'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement].join(' ')}>
 					LATEST WISHES
 			</Link>
-			<Link to={'/me'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement].join(' ')}>
-					MY WISHES
+			<Link to={'/me'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement].join(' ')}
+				onClick={this.checkSignIn}>
+				{this.props.auth.isLoggedIn ? 'MY WISHES' : 'SIGN IN'}
 			</Link>
 		</div>
 	}
