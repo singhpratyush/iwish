@@ -17,7 +17,7 @@ export const setWishes = (type, wishObjects) => {
 		}));
 		switch (type) {
 			case 'trending':
-				sortedWish = wishList.sort((a, b) => Object.keys(b.upwishes).length - Object.keys(a.upwishes).length);
+				sortedWish = wishList.sort((a, b) => Object.keys(b.upwishes || {}).length - Object.keys(a.upwishes || {}).length);
 				break;
 			case 'latest':
 				sortedWish = wishList.sort((a, b) => b.createdAt - a.createdAt);
