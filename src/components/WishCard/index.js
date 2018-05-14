@@ -47,7 +47,7 @@ class WishCard extends React.Component {
 			</div>
 			<div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-between']].join(' ')}>
 				<div className={[uikitStyles['uk-flex']].join(' ')} onClick={this.upwishToggle}
-					style={{backgroundColor: colors.primary.light, height: '40px', cursor: 'pointer'}}>
+					style={{backgroundColor: colors.primary.light, height: '40px', cursor: 'pointer', fontWeight: 500}}>
 					<div className={[styles.upwishButton, userHasWished ? styles.upwished : ''].join(' ')}>
 						<img src={upwishImage} alt={'^'} style={{width: '12px'}}/>
 					</div>
