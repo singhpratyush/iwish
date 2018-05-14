@@ -26,6 +26,8 @@ class App extends React.Component {
 					<Route exact path='/trending' render={() => <WishList category='trending' getDatabaseRef={getTrendingWishes}/>}/>
 					<Route exact path='/latest' render={() => <WishList category='latest' getDatabaseRef={getLatestWishes}/>}/>
 					<Route exact path='/@:uid' component={UserProfile}/>
+					{!this.props.authState.isLoggedIn && <Redirect to='/'/>}
+					<Route exact path='/me' render={() => <Redirect to={`/@${this.props.authState.user.uid}`}/>}/>
 				</Switch>
 				<CreateWish/>
 			</div>

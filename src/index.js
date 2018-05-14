@@ -18,6 +18,7 @@ window.login = () => {
 	let provider = new firebase.auth.GoogleAuthProvider();
 	firebase.auth().signInWithPopup(provider);
 }
+window.logout = () => firebase.auth().signOut();
 
 ReactDOM.render(<Provider store={getStore()}><App /></Provider>, document.getElementById('root'));
 // registerServiceWorker();

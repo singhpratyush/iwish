@@ -3,3 +3,24 @@
 	width: 96px;
 	height: 96px;
 }
+
+.wishList {
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.06);
+}
+
+.logoutButton {
+	padding: 16px;
+	background: #e6ffff;
+	color: #01579b;
+	font-weight: 500;
+	border: 1px solid #82b3c9;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+.logoutButton:hover, .logoutButton:focus {
+	background: #b3e5fc;
+	transition: all 0.3s ease;
+}
+

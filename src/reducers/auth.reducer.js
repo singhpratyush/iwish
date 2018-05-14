@@ -8,6 +8,7 @@ export const authReducer = (state = initialState, action) => {
 			return {...state, isLoggedIn: true, user: action.user};
 
 		case authActionTypes.LOGOUT_DONE:
+			return {...state, isLoggedIn: false, user: null};
 		default:
 			return state;
 	}

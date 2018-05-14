@@ -15,11 +15,13 @@ class WishList extends React.Component {
 		this.databaseRef = this.props.getDatabaseRef();
 		this.databaseRef.on('value', snapshot => {
 			this.props.wishActions.setWishes(this.props.category, snapshot.val());
-		})
+		});
 	}
 
-	componentWillReceiveProps() {
-		this.startWishUpdate();
+	componentWillReceiveProps(nextProps) {
+		if (this.props.cetegory !== nextProps.category) {
+			this.startWishUpdate();
+		}
 	}
 
 	componentWillUnmount() {

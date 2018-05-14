@@ -30,7 +30,7 @@ class Header extends React.Component {
 			<Link to={'/latest'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement, styles.navElement, window.location.pathname === '/latest' ? styles.active : ''].join(' ')}>
 				LATEST WISHES
 			</Link>
-			<Link to={'/me'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement, styles.navElement, window.location.pathname === '/me' ? styles.active : ''].join(' ')}
+			<Link to={'/me'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement, styles.navElement, this.props.auth.isLoggedIn && (window.location.pathname === `/@${this.props.auth.user.uid}`) ? styles.active : ''].join(' ')}
 				onClick={this.checkSignIn}>
 				{this.props.auth.isLoggedIn ? 'MY WISHES' : 'SIGN IN'}
 			</Link>
