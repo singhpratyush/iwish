@@ -22,6 +22,9 @@ class CreateWish extends React.Component {
 		this.wishInputRef.current.focus();
 		this.wishInputRef.current.addEventListener('keyup', (event) => {
 			this.setState(this.wishInputRef.current.value.trim().length > 2 ? {...this.state, isPostable: true} : {...this.state, isPostable: false});
+			if (event.code === 'Enter') {
+				this.onClickSubmit(event);
+			}
 		});
 		getWishSuggestions().once('value', snapshot => {
 			let val = snapshot.val();
