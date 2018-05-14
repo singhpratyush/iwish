@@ -13,3 +13,10 @@
 .navElement:hover {
 	text-decoration: none;
 }
+
+.active {
+	background-image: url('https://firebasestorage.googleapis.com/v0/b/wishqus-com.appspot.com/o/active-bg.png?alt=media&token=b7f98b52-cb9e-4f7d-91ec-d4acd1c866c4');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}

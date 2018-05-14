@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     return <BrowserRouter>
 			<div>
-				<Header/>
+				<Route component={Header}/>
 				<Switch>
 					<Route exact path='/' render={() => <Redirect to='/trending'/>}/>
 					{/* Type of list */}

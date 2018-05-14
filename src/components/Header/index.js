@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import styles from './css/header.css';
@@ -24,13 +24,13 @@ class Header extends React.Component {
 	render() {
 		return <div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-center'], styles.headerContainer].join(' ')}
 			style={{backgroundColor: colors.primary.base}}>
-			<Link to={'/trending'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement].join(' ')}>
-					TRENDING WISHES
+			<Link to={'/trending'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement, window.location.pathname === '/trending' ? styles.active : ''].join(' ')}>
+				TRENDING WISHES
 			</Link>
-			<Link to={'/latest'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement].join(' ')}>
-					LATEST WISHES
+			<Link to={'/latest'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement, styles.navElement, window.location.pathname === '/latest' ? styles.active : ''].join(' ')}>
+				LATEST WISHES
 			</Link>
-			<Link to={'/me'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement].join(' ')}
+			<Link to={'/me'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement, styles.navElement, window.location.pathname === '/me' ? styles.active : ''].join(' ')}
 				onClick={this.checkSignIn}>
 				{this.props.auth.isLoggedIn ? 'MY WISHES' : 'SIGN IN'}
 			</Link>
@@ -42,4 +42,4 @@ Header.propTypes = {
 	auth: PropTypes.object.isRequired,
 }
 
-export default Header;
+export default withRouter(Header);
