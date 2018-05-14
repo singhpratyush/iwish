@@ -5,6 +5,7 @@ import uikitStyles from '../../utils/uikitStyles';
 import styles from './css/CreateWishCard.css';
 import {colors} from '../../utils/styles';
 import {getWishSuggestions} from '../../utils/firebase';
+import sendImage from './img/send.png';
 
 // TODO: User proper icon for "post" button
 class CreateWish extends React.Component {
@@ -63,11 +64,9 @@ class CreateWish extends React.Component {
 					I wish
 				</div>
 				<div className={[uikitStyles['uk-flex']].join(' ')}
-				  style={{flexGrow: 1, backgroundColor: 'white', padding: '20px 16px'}}>
+				  style={{flexGrow: 1, backgroundColor: 'white', padding: '20px'}}>
 					<input className={[styles.wishInput].join(' ')} placeholder={this.state.suggestion} ref={this.wishInputRef}/>
-					<button style={{background: 'transparent', cursor: 'pointer', border: '0'}} onClick={this.onClickSubmit}>
-						=>
-					</button>
+					<img src={sendImage} alt={'=>'} onClick={this.onClickSubmit} style={{height: '18px', width: '18px', cursor: 'pointer'}}/>
 				</div>
 			</div>
 		</div>
