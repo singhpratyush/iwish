@@ -5,6 +5,7 @@ import styles from './css/WishCard.css';
 import uikitStyles from '../../utils/uikitStyles';
 import {colors} from '../../utils/styles';
 import * as firebaseUtils from '../../utils/firebase';
+import upwishImage from './img/upwish.png';
 
 class WishCard extends React.Component {
 
@@ -45,10 +46,10 @@ class WishCard extends React.Component {
 				<span style={{color: colors.primary.textOn}}>I wish </span> {this.props.data.text}
 			</div>
 			<div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-between']].join(' ')}>
-				<div className={[uikitStyles['uk-flex']].join(' ')}
-					style={{backgroundColor: colors.primary.light, height: '40px'}}>
-					<div className={[styles.upwishButton, userHasWished ? styles.upwished : ''].join(' ')} onClick={this.upwishToggle}>
-						^
+				<div className={[uikitStyles['uk-flex']].join(' ')} onClick={this.upwishToggle}
+					style={{backgroundColor: colors.primary.light, height: '40px', cursor: 'pointer'}}>
+					<div className={[styles.upwishButton, userHasWished ? styles.upwished : ''].join(' ')}>
+						<img src={upwishImage} alt={'^'} style={{width: '12px'}}/>
 					</div>
 					<div style={{fontSize: '12px', letterSpacing: '1.02px', color: colors.primary.textOn, padding: '11px 16px'}}>
 						<span>UPWISH</span>

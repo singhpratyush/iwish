@@ -23,10 +23,8 @@
 	height: 24px;
 	width: 24px;
 	padding: 8px;
-	cursor: pointer;
 	background-color: #b3e5fc;
 	transition: all 0.3s ease;
-	font-size: 23px;
 	text-align: center;
 	color: black;
 }
