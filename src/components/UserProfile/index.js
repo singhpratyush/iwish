@@ -9,7 +9,7 @@ class UserProfile extends React.Component {
 	constructor(props) {
 		super(props);
 		this.firebaseDateRef = getUserDetails(this.props.match.params.uid);
-		
+
 		this.logout = this.logout.bind(this);
 	}
 
@@ -38,12 +38,12 @@ class UserProfile extends React.Component {
 						</span>
 					</div>
 					<div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center']].join(' ')}>
-						{this.props.authState.isLoggedIn && this.props.authState.user.uid === this.props.match.params.uid && 
+						{this.props.authState.isLoggedIn && this.props.authState.user.uid === this.props.match.params.uid &&
 							<button className={[styles.logoutButton].join(' ')} onClick={this.logout}>LOGOUT</button>}
 					</div>
 				</div>
 				<div className={[uikitStyles['uk-margin-large-top'], styles.wishList].join(' ')}>
-					{Object.keys(this.props.profileUser.wishes).map(key => <WishCard key={key} data={this.props.profileUser.wishes[key]} auth={this.props.authState}/>)}
+					{Object.keys(this.props.profileUser.wishes).map(key => <WishCard key={key} data={{...this.props.profileUser.wishes[key], id: key}} auth={this.props.authState}/>)}
 				</div>
 			</div>
 		</div>
