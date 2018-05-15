@@ -21,6 +21,11 @@ $ yarn test [--coverage] [--watch] # Run tests
 <table>
     <tr>
         <td align="center">
+            <img width="150" height="150" src="https://avatars2.githubusercontent.com/u/10809719?s=400&v=4"><br>
+            <div>Ankit Kumar</div><br>
+            <div><a href="https://twitter.com/kumar071460/">Twitter</a> - <a href="https://github.com/bxute">Github</a></div>
+        </td>
+        <td align="center">
             <img width="150" height="150" src="https://pbs.twimg.com/profile_images/937256384143417344/o4A8odIr_400x400.jpg"><br>
             <div>Mofid Ansari</div><br>
             <div><a href="https://twitter.com/ansarimofid_">Twitter</a> - <a href="https://github.com/ansarimofid/">Github</a></div>
