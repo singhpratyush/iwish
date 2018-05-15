@@ -42,7 +42,7 @@ class UserProfile extends React.Component {
 							<button className={[styles.logoutButton].join(' ')} onClick={this.logout}>LOGOUT</button>}
 					</div>
 				</div>
-				<div className={[uikitStyles['uk-margin-large-top'], styles.wishList].join(' ')}>
+				<div className={[uikitStyles['uk-margin-large-top'], styles.wishList].join(' ')} style={{backgroundColor: 'white'}}>
 					{Object.keys(this.props.profileUser.wishes).map(key => <WishCard key={key} data={{...this.props.profileUser.wishes[key], id: key}} auth={this.props.authState}/>)}
 				</div>
 			</div>
