@@ -15,6 +15,22 @@ $ yarn test [--coverage] [--watch] # Run tests
 
 ### Team
 
-- [@ansarimofid_](https://twitter.com/ansarimofid_)
-- [@singhpratyush_](https://github.com/singhpratyush_)
-- [@TheRajatDangi](https://twitter.com/TheRajatDangi)
+<table>
+    <tr>
+        <td align="center">
+            <img width="150" height="150" src="https://pbs.twimg.com/profile_images/937256384143417344/o4A8odIr_400x400.jpg"><br>
+            <div>Mofid Ansari</div><br>
+            <div><a href="https://twitter.com/ansarimofid_">Twitter</a> - <a href="https://github.com/ansarimofid/">Github</a></div>
+        </td>
+        <td align="center">
+            <img width="150" height="150" src="https://pbs.twimg.com/profile_images/950061525737259008/diSwoT_A_400x400.jpg"><br>
+            <div>Pratyush Singh</div><br>
+            <div><a href="https://twitter.com/singhpratyush_">Twitter</a> - <a href="https://github.com/singhpratyush">Github</a></div>
+        </td>
+        <td align="center">
+            <img width="150" height="150" src="https://pbs.twimg.com/profile_images/908291808727203840/flUA6w3__400x400.jpg"><br>
+            <div>Rajat Dangi</div><br>
+            <div><a href="https://twitter.com/TheRajatDangi">Twitter</a> - <a href="https://github.com/raj-at">Github</a></div>
+        </td>
+    <tr>
+</table>
