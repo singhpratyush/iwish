@@ -1,6 +1,9 @@
-# WISHQUS
+# [WISHQUS](https://wishqus.com)
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Make public wishes and let others see and upwish them. Includes **TRENDING** and **LATEST** sections where you can find most upwished wishes in previous three days and live wishes as they are created on the platform.
+
+
+> This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 
 ### Development
