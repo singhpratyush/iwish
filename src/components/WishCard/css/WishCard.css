@@ -18,22 +18,29 @@
 	font-weight: 600;
 }
 
+.upwishContainer {
+	background-color: #e6ffff;
+	height: 40px;
+	cursor: pointer;
+	font-weight: 500;
+}
+
 .upwishButton {
 	height: 24px;
 	width: 24px;
 	padding: 8px;
 	background-color: #b3e5fc;
-	transition: all 0.3s ease;
+	transition: all 0.3s ease-out;
 	text-align: center;
 	color: black;
 }
 
-.upwishButton:hover {
+.upwishContainer:hover .upwishButton, .upwishButton:hover {
 	background-color: #82b3c9;
-	transition: all 0.3s ease;
+	transition: all 0.3s ease-in;
 }
 
 .upwished {
-	background-color: #82b3c9;
-	transition: all 0.3s ease;
+	background-color: #01579b;
+	transition: all 0.3s ease-in;
 }

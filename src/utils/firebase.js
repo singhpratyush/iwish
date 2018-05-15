@@ -46,9 +46,9 @@ export const getUserDetails = uid => {
 
 export const getTrendingWishes = () => {
 	let now = new Date();
-	now.setDate(now.getDate() - 1);
-	let dayAgo = now.getTime();
-	return firebase.database().ref('/wishes/').orderByChild('createdAt').startAt(dayAgo);
+	now.setDate(now.getDate() - 3);
+	let daysAgo = now.getTime();
+	return firebase.database().ref('/wishes/').orderByChild('createdAt').startAt(daysAgo);
 }
 
 export const getLatestWishes = () => {
