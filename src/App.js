@@ -21,7 +21,7 @@ class App extends React.Component {
 			<div>
 				<Route component={Header}/>
 				<Switch>
-					<Route exact path='/' render={() => <Redirect to='/trending'/>}/>
+					<Route exact path='/' render={() => <Redirect to='/latest'/>}/>
 					{/* Type of list */}
 					<Route exact path='/trending' render={() => <WishList category='trending' getDatabaseRef={getTrendingWishes}/>}/>
 					<Route exact path='/latest' render={() => <WishList category='latest' getDatabaseRef={getLatestWishes}/>}/>
