@@ -21,7 +21,6 @@ export const saveUser = user => {
 };
 
 export const createWish = (text, paypalUser = null) => {
-	console.log(paypalUser);
 	let uid = firebase.auth().currentUser.uid;
 	let wishObj = {
 		user: {
@@ -36,7 +35,6 @@ export const createWish = (text, paypalUser = null) => {
 	if (paypalUser) {
 		wishObj.paypalUser = paypalUser;
 	}
-	console.log(wishObj);
 	let newKey = firebase.database().ref('/wishes/').push().key;
 	let updates = {};
 	updates[`/wishes/${newKey}`] = wishObj;
@@ -44,6 +42,9 @@ export const createWish = (text, paypalUser = null) => {
 
 	return firebase.database().ref().update(updates);
 };
+
+export const setUserPaypal = (uid, paypal) => firebase.database()
+	.ref(`/users/${uid}/`).update({ paypal });
 
 export const getUserDetails = uid => {
 	return firebase.database().ref(`/users/${uid}/`);

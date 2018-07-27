@@ -25,3 +25,20 @@
 	transition: all 0.3s ease;
 }
 
+.paypalInput {
+	border: 0px transparent;
+	background: transparent;
+	flex-grow: 1;
+	outline: none;
+	font-size: 16px;
+	color: #999;
+	margin-left: 4px;
+}
+
+.paypalInput::-moz-placeholder,  {
+	color: #d4d4d4;
+}
+
+.paypalInput::-webkit-input-placeholder {
+	color: #d4d4d4;
+}
