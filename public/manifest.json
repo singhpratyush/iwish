@@ -2,6 +2,11 @@
   "short_name": "WISHQUS",
   "name": "WISHQUS - I wish that too",
   "icons": [
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "size": "120x92"
+    }
   ],
   "start_url": "./index.html",
   "display": "standalone",
