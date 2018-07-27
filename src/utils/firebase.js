@@ -20,7 +20,8 @@ export const saveUser = user => {
 	});
 };
 
-export const createWish = text => {
+export const createWish = (text, paypalUser = null) => {
+	console.log(paypalUser);
 	let uid = firebase.auth().currentUser.uid;
 	let wishObj = {
 		user: {
@@ -32,6 +33,10 @@ export const createWish = text => {
 		text,
 		upwish: {},
 	};
+	if (paypalUser) {
+		wishObj.paypalUser = paypalUser;
+	}
+	console.log(wishObj);
 	let newKey = firebase.database().ref('/wishes/').push().key;
 	let updates = {};
 	updates[`/wishes/${newKey}`] = wishObj;

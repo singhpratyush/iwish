@@ -1,7 +1,7 @@
 import {createWish as createNewWish} from '../utils/firebase';
 import wishActionTypes from '../actionTypes/wish.actionTypes';
 
-export const createWish = text => dispatch => createNewWish(text)
+export const createWish = (text, paypalUser) => dispatch => createNewWish(text, paypalUser)
 	.then(() => dispatch({type: wishActionTypes.CREATE_DONE, text}));
 
 export const setWishes = (type, wishObjects) => {

@@ -44,3 +44,15 @@
 	background-color: #01579b;
 	transition: all 0.3s ease-in;
 }
+
+.donateButton {
+	background-color: #b3e5fc;
+	text-align: center;
+	color: rgb(1, 87, 155);
+	transition: all 0.3s ease-in;
+}
+
+.donateButton:hover {
+	background-color: #01579b;
+	transition: all 0.3s ease-out;
+}

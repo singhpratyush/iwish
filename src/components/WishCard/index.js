@@ -36,6 +36,20 @@ class WishCard extends React.Component {
 		this.upwish(userHasWished);
 	}
 
+	getDonationButton() {
+		if (this.props.data.paypalUser) {
+			return (
+			<a
+				href={`https://paypal.me/${this.props.data.paypalUser}`}
+				target="_blank"
+				style={{fontSize: '12px', letterSpacing: '1.02px', color: colors.primary.textOn, padding: '11px 16px'}}
+			>
+				Donate
+			</a>
+			)
+		}
+	}
+
 	render() {
 		let upwishes = this.props.data.upwishes || {};
 		let userHasWished = false;
@@ -47,6 +61,7 @@ class WishCard extends React.Component {
 				<span style={{color: colors.primary.textOn}}>I wish </span> {this.props.data.text}
 			</div>
 			<div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-between']].join(' ')}>
+				<div className={[uikitStyles['uk-flex']].join(' ')}>
 				<div className={[uikitStyles['uk-flex'], styles.upwishContainer].join(' ')} onClick={this.upwishToggle}>
 					<div className={[styles.upwishButton, userHasWished ? styles.upwished : ''].join(' ')}>
 						<img src={upwishImage} alt={'^'} style={{width: '12px'}}/>
@@ -55,6 +70,8 @@ class WishCard extends React.Component {
 						<span>UPWISH</span>
 						<span style={{marginLeft: '8px'}}>{Object.keys(this.props.data.upwishes || {}).length}</span>
 					</div>
+				</div>
+				{this.getDonationButton()}
 				</div>
 				<div>
 					<TimeAgo style={{letterSpacing: '0.93px', fontSize: '12px', margin: '14px'}}>{this.props.data.createdAt}</TimeAgo>
