@@ -46,7 +46,7 @@ class CreateWish extends React.Component {
 	componentWillReceiveProps(newProps) {
 		if (newProps.user) {
 			const { user } = newProps;
-			getUserDetails(user.uid).once('value', snapshot => {
+			getUserDetails(user.uid).on('value', snapshot => {
 				const val = snapshot.val();
 				console.log(val);
 				if (val.paypal) {
