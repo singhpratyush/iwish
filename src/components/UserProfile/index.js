@@ -53,13 +53,21 @@ class UserProfile extends React.Component {
 							</div>
 							<div className={uikitStyles['uk-flex']} style={{ fontSize: 16, alignContent: 'center', marginTop: 16 }}>
 								paypal.me/
-								<input
-									value={this.props.profileUser.paypal || ''}
-									onChange={this.setPaypal}
-									className={styles.paypalInput}
-									id="paypal-input"
-								/>
-								<svg onClick={this.focusPaypal} style={{ color: 'black', height: 16, marginTop: 2, cursor: 'pointer' }} aria-hidden="true" data-prefix="fas" data-icon="pen" class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg>
+								{
+									this.props.authState.isLoggedIn && this.props.authState.user.uid === this.props.match.params.uid
+									? this.props.authState.isLoggedIn && (
+										<span>
+											<input
+												value={this.props.profileUser.paypal || ''}
+												onChange={this.setPaypal}
+												className={styles.paypalInput}
+												id="paypal-input"
+											/>
+											<svg onClick={this.focusPaypal} style={{ color: 'black', height: 16, marginTop: 2, cursor: 'pointer' }} aria-hidden="true" data-prefix="fas" data-icon="pen" class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg>
+										</span>
+									)
+									: <span>{this.props.profileUser.paypal || ''}</span>
+								}
 							</div>
 							</div>
 					</div>
