@@ -51,9 +51,10 @@ class CreateWish extends React.Component {
 			return;
 		}
 
-		this.props.createWish.new(this.wishInputRef.current.value.trim());
-
-		this.wishInputRef.current.value = '';
+		this.props.createWish.new(this.wishInputRef.current.value.trim())
+			.then(() => {
+				this.wishInputRef.current.value = '';
+			});
 	}
 
 	render() {
