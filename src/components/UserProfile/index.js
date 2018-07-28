@@ -2,7 +2,6 @@ import React from 'react';
 
 import {getUserDetails, setUserPaypal} from '../../utils/firebase';
 import uikitStyles from '../../utils/uikitStyles';
-import { colors } from '../../utils/styles';
 import styles from './css/UserProfile.css';
 import WishCard from '../WishCard';
 

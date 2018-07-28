@@ -74,10 +74,12 @@ class CreateWish extends React.Component {
 		}
 
 		console.log(this.state.paypalUser);
-		this.props.createWish.new(this.wishInputRef.current.value.trim(), this.state.paypalUser)
-			.then(() => {
-				this.wishInputRef.current.value = '';
-			});
+		this.props.createWish.new(
+			this.wishInputRef.current.value.trim(),
+			this.state.paypal ? this.state.paypalUser : null,
+		).then(() => {
+			this.wishInputRef.current.value = '';
+		});
 	}
 
 	onPaypalClick() {
