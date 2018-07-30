@@ -8,22 +8,22 @@ import { deleteWish } from '../../utils/firebase';
 class WishList extends React.Component {
 	constructor(props) {
 		super(props);
-		this.startWishUpdate();
+		this.startWishUpdate(props);
 
 		this.onDelete = this.onDelete.bind(this);
 	}
 
-	startWishUpdate() {
+	startWishUpdate(props) {
 		this.databaseRef && this.databaseRef.off();
-		this.databaseRef = this.props.getDatabaseRef();
+		this.databaseRef = props.getDatabaseRef();
 		this.databaseRef.on('value', snapshot => {
-			this.props.wishActions.setWishes(this.props.category, snapshot.val());
+			this.props.wishActions.setWishes(props.category, snapshot.val());
 		});
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (this.props.category !== nextProps.category) {
-			this.startWishUpdate();
+			this.startWishUpdate(nextProps);
 		}
 	}
 
