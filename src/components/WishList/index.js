@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 
 import WishCard from '../WishCard';
 import uikitStyles from '../../utils/uikitStyles';
+import { deleteWish } from '../../utils/firebase';
 
 class WishList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.startWishUpdate();
+
+		this.onDelete = this.onDelete.bind(this);
 	}
 
 	startWishUpdate() {
@@ -19,7 +22,7 @@ class WishList extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (this.props.cetegory !== nextProps.category) {
+		if (this.props.category !== nextProps.category) {
 			this.startWishUpdate();
 		}
 	}
@@ -28,13 +31,22 @@ class WishList extends React.Component {
 		this.databaseRef.off();
 	}
 
+	onDelete(wishId, userId) {
+		deleteWish(wishId, userId);
+	}
+
 	render() {
 		return <div style={{margin: '32px 0'}}
 			className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-center']].join(' ')}>
 			<div className={[uikitStyles['uk-width-1-1@s'], uikitStyles['uk-width-2-3@m'], uikitStyles['uk-width-1-2@l']].join(' ')}
 				style={{backgroundColor: 'white', boxShadow: '0 2px 4px 0 rgba(0,0,0,0.06)', borderRadius: '4px'}}>
 				{Object.keys(this.props.wishes).map(wishId =>
-					<WishCard data={this.props.wishes[wishId]} key={wishId} auth={this.props.auth}/>)}
+					<WishCard
+						data={this.props.wishes[wishId]}
+						key={wishId}
+						auth={this.props.auth}
+						onDelete={this.onDelete}
+					/>)}
 			</div>
 		</div>
 	}

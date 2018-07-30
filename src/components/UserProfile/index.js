@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {getUserDetails, setUserPaypal} from '../../utils/firebase';
+import {getUserDetails, setUserPaypal, deleteWish} from '../../utils/firebase';
 import uikitStyles from '../../utils/uikitStyles';
 import styles from './css/UserProfile.css';
 import WishCard from '../WishCard';
@@ -62,7 +62,7 @@ class UserProfile extends React.Component {
 												className={styles.paypalInput}
 												id="paypal-input"
 											/>
-											<svg onClick={this.focusPaypal} style={{ color: 'black', height: 16, marginTop: 2, cursor: 'pointer' }} aria-hidden="true" data-prefix="fas" data-icon="pen" class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg>
+											<svg onClick={this.focusPaypal} style={{ color: 'black', height: 16, marginTop: 2, cursor: 'pointer' }} aria-hidden="true" data-prefix="fas" data-icon="pen" className="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg>
 										</span>
 									)
 									: <span>{this.props.profileUser.paypal || ''}</span>
@@ -76,7 +76,12 @@ class UserProfile extends React.Component {
 					</div>
 				</div>
 				<div className={[uikitStyles['uk-margin-large-top'], styles.wishList].join(' ')} style={{backgroundColor: 'white'}}>
-					{Object.keys(this.props.profileUser.wishes).map(key => <WishCard key={key} data={{...this.props.profileUser.wishes[key], id: key}} auth={this.props.authState}/>)}
+					{Object.keys(this.props.profileUser.wishes).map(key => <WishCard
+						key={key}
+						data={{...this.props.profileUser.wishes[key], id: key}}
+						auth={this.props.authState}
+						onDelete={deleteWish}
+					/>)}
 				</div>
 			</div>
 		</div>

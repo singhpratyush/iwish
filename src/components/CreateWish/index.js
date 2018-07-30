@@ -48,7 +48,6 @@ class CreateWish extends React.Component {
 			const { user } = newProps;
 			getUserDetails(user.uid).on('value', snapshot => {
 				const val = snapshot.val();
-				console.log(val);
 				if (val.paypal) {
 					this.setState({
 						...this.state,
@@ -73,7 +72,6 @@ class CreateWish extends React.Component {
 			return;
 		}
 
-		console.log(this.state.paypalUser);
 		this.props.createWish.new(
 			this.wishInputRef.current.value.trim(),
 			this.state.paypal ? this.state.paypalUser : null,
@@ -114,7 +112,7 @@ class CreateWish extends React.Component {
 							aria-hidden="true"
 							data-prefix="fab"
 							data-icon="paypal"
-							class="svg-inline--fa fa-paypal fa-w-12"
+							className="svg-inline--fa fa-paypal fa-w-12"
 							role="img"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 512 512"
