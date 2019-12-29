@@ -101,8 +101,8 @@ class CreateWish extends React.Component {
 					style={{backgroundColor: colors.primary.base, color: colors.primary.textOn, fontSize: '16px', padding: '0 16px', fontWeight: 700}}>
 					I wish
 				</div>
-				<div className={[uikitStyles['uk-flex']].join(' ')}
-				  style={{flexGrow: 1, backgroundColor: 'white', padding: '20px'}}>
+				<div className={[uikitStyles['uk-flex'],uikitStyles['uk-flex-middle']].join(' ')}
+				  style={{flexGrow: 1, backgroundColor: 'white', paddingLeft: '16px', paddingRight: '16px'}}>
 					<input className={[styles.wishInput].join(' ')} placeholder={this.state.suggestion} ref={this.wishInputRef}/>
 					<span
 						style={{ width: 18, height: 18, marginRight: 8, color: this.state.paypal ? colors.primary.textOn : colors.primary.dark , cursor: 'pointer' }}
