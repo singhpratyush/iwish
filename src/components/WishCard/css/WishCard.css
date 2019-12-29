@@ -41,7 +41,7 @@
 
 .upwishContainer:hover .upwishButton, .upwishButton:hover {
 	background-color: #82b3c9;
-	transition: all 0.3s ease-in;
+	transition: all 0.15s ease-in;
 }
 
 .upwished {

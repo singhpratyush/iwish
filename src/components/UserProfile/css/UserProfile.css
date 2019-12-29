@@ -33,10 +33,9 @@
 	font-size: 16px;
 	font-weight: 700;
 	color: black;
-	margin-left: 4px;
 }
 
-.paypalInput::-moz-placeholder,  {
+.paypalInput::-moz-placeholder  {
 	color: #d4d4d4;
 }
 
