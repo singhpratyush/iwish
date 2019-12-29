@@ -37,6 +37,9 @@
 	color: black;
 	border-top-left-radius: 4px;
 	border-bottom-left-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .upwishContainer:hover .upwishButton, .upwishButton:hover {

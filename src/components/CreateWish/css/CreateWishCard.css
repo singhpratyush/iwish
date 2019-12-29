@@ -5,9 +5,10 @@
 	outline: none;
 	font-size: 16px;
 	color: rgba(0, 0, 0, 0.54);
+	padding-right: 12px;
 }
 
-.wishInput::-moz-placeholder,  {
+.wishInput::-moz-placeholder {
 	color: #d4d4d4;
 }
 
