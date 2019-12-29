@@ -6,7 +6,6 @@ import styles from './css/WishCard.css';
 import uikitStyles from '../../utils/uikitStyles';
 import { colors } from '../../utils/styles';
 import * as firebaseUtils from '../../utils/firebase';
-import upwishImage from './img/upwish.png';
 
 class WishCard extends React.Component {
 
@@ -126,12 +125,9 @@ class WishCard extends React.Component {
 									? styles.upwished
 									: ''
 							].join(' ')}>
-							<img
-								src={upwishImage}
-								alt={'^'}
-								style={{
-									width: '12px'
-								}} />
+							<svg width="13" height="8" xmlns="http://www.w3.org/2000/svg">
+								<path d="M11.295 7.705l-4.59-4.58-4.59 4.58-1.41-1.41 6-6 6 6z" fill={userHasWished?'white':'black'} fillRule="nonzero"/>
+							</svg>
 						</div>
 						<div
 							style={{
