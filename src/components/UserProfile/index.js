@@ -106,7 +106,7 @@ class UserProfile extends React.Component {
 	render() {
 		return <div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-center']].join(' ')}>
 			<div className={[uikitStyles['uk-width-1-1@s'], uikitStyles['uk-width-2-3@m'], uikitStyles['uk-width-1-2@l']].join(' ')}>
-				<div style={{ padding: '32px 24px', display: 'flex', justifyContent: 'space-between' }}>  {/* User details */}
+				<div style={{ padding: '64px 24px 32px 24px', display: 'flex', justifyContent: 'space-between' }}>  {/* User details */}
 					<div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column']].join(' ')}>
 						{this.getImage()}
 						<div className={[uikitStyles['uk-margin-small-top']].join(' ')}>

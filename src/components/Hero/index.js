@@ -6,7 +6,7 @@ import { colors } from '../../utils/styles';
 
 const index = () => {
   return (
-    <div style={{ margin: '32px 0 40px 0' }}
+    <div style={{ margin: '64px 0 40px 0' }}
       className={[styles.heroContainer, uikitStyles['uk-flex'], uikitStyles['uk-flex-center']].join(' ')}>
       <div className={[uikitStyles['uk-width-1-1@s'], uikitStyles['uk-width-2-3@m'], uikitStyles['uk-width-1-2@l']].join(' ')}>
         <div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-bottom'], uikitStyles['uk-flex-row']].join(' ')}>
