@@ -1,15 +1,20 @@
 {
-  "short_name": "WISHQUS",
-  "name": "WISHQUS - I wish that too",
+  "short_name": "iWish",
+  "name": "iWish",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
       "type": "image/png",
-      "size": "120x92"
+      "sizes": "512x512"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#B3E5FC",
   "background_color": "#ffffff"
 }
