@@ -4,7 +4,7 @@ import ContentLoader from 'react-content-loader';
 export default props => (
 	<div style={{ marginBottom: 32, background: 'white' }}>
 		<ContentLoader
-			height={134}
+			height={160}
 			width={588}
 			speed={1}
 			primaryColor="#f3f3f3"
