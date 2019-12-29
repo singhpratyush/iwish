@@ -98,7 +98,7 @@ class CreateWish extends React.Component {
 				uikitStyles['uk-flex']].join(' ')}
 				style={{height: '56px', margin: '16px 4px', borderRadius: '4px'}}>
 				<div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-center'], uikitStyles['uk-flex-column']].join(' ')}
-					style={{backgroundColor: colors.primary.base, color: colors.primary.textOn, fontSize: '16px', padding: '0 16px', fontWeight: 500}}>
+					style={{backgroundColor: colors.primary.base, color: colors.primary.textOn, fontSize: '16px', padding: '0 16px', fontWeight: 700}}>
 					I wish
 				</div>
 				<div className={[uikitStyles['uk-flex']].join(' ')}

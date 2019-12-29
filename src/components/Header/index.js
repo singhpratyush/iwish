@@ -25,10 +25,10 @@ class Header extends React.Component {
 		return <div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-center'], styles.headerContainer].join(' ')}
 			style={{backgroundColor: colors.primary.base}}>
 			<Link to={'/trending'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement, window.location.pathname === '/trending' ? styles.active : ''].join(' ')}>
-				TRENDING WISHES
+				TRENDING
 			</Link>
 			<Link to={'/latest'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement, styles.navElement, window.location.pathname === '/latest' ? styles.active : ''].join(' ')}>
-				LATEST WISHES
+				LATEST
 			</Link>
 			<Link to={'/me'} className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-column'], uikitStyles['uk-flex-center'], styles.navElement, styles.navElement, this.props.auth.isLoggedIn && (window.location.pathname === `/@${this.props.auth.user.uid}`) ? styles.active : ''].join(' ')}
 				onClick={this.checkSignIn}>

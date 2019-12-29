@@ -1,7 +1,9 @@
 .headerContainer {
-	height: 72px;
+	height: 32px;
 	font-size: 14px;
-	font-weight: 500;
+	position: fixed;
+	width: 100vw;
+	top: 0;
 }
 
 .navElement {
@@ -20,4 +22,5 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
+	font-weight: 700;
 }
