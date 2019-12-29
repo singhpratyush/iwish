@@ -1,0 +1,17 @@
+@media screen and (max-width:960px) {
+	.heroContainer {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+}
+
+@media screen and (max-width:640px) {
+	.heroContainer {
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+
+	.heroContainer p {
+		margin-bottom: 0;
+	}
+}
