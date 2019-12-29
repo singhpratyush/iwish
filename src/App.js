@@ -21,11 +21,11 @@ class App extends React.Component {
 		return <BrowserRouter>
 			<div>
 				<Route component={Header} />
-				<Route exact path='/' render={() => <Redirect to='/latest' />} />
-				{/* Type of list */}
-				<Route exact path='/trending' render={() => <WishList category='trending' getDatabaseRef={getTrendingWishes} />} />
-				<Route exact path='/latest' render={() => <div><Hero /><WishList category='latest' getDatabaseRef={getLatestWishes} /></div>} />
-				<Switch>}/>
+				<Switch>
+					<Route exact path='/' render={() => <Redirect to='/latest' />} />
+					{/* Type of list */}
+					<Route exact path='/trending' render={() => <WishList category='trending' getDatabaseRef={getTrendingWishes} />} />
+					<Route exact path='/latest' render={() => <div><Hero /><WishList category='latest' getDatabaseRef={getLatestWishes} /></div>} />
 					<Route exact path='/@:uid' component={UserProfile} />
 					{!this.props.authState.isLoggedIn && <Redirect to='/' />}
 					<Route exact path='/me' render={() => <Redirect to={`/@${this.props.authState.user.uid}`} />} />
