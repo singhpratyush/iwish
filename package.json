@@ -57,6 +57,8 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
+    "deploy":"firebase deploy",
+    "predeploy":"yarn run build",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
