@@ -2,6 +2,7 @@ import React from 'react';
 import uikitStyles from '../../utils/uikitStyles';
 import heroImg from './img/hero.svg'
 import styles from './css/style.css'
+import { colors } from '../../utils/styles';
 
 const index = () => {
   return (
@@ -11,8 +12,10 @@ const index = () => {
         <div className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-bottom'], uikitStyles['uk-flex-row']].join(' ')}>
           <img className={[uikitStyles['uk-visible@s'], uikitStyles['uk-margin-medium-right']].join(' ')} src={heroImg} alt="Hero" />
           <div>
-            <h3>Everything starts with a wish. What’s your wish?</h3>
-            <p>One day someone wished for a connected world. And today we’ve Internet. One day someone wished for pineapple pizza. Well, let’s not talk about that.</p>
+            <h3 style={{
+              color: colors.primary.textOn
+            }}>Everything starts with a wish. What’s your wish?</h3>
+            <p>One day someone wished for a connected world, and today we have the Internet. One day someone wished for a pineapple pizza, well, let’s not talk about that.</p>
           </div>
         </div>
       </div>
