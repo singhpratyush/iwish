@@ -45,7 +45,6 @@ class WishList extends React.Component {
 			className={[uikitStyles['uk-flex'], uikitStyles['uk-flex-center']].join(' ')}>
 			<div className={[uikitStyles['uk-width-1-1@s'], uikitStyles['uk-width-2-3@m'], uikitStyles['uk-width-1-2@l']].join(' ')}
 				style={{ backgroundColor: 'white', boxShadow: '0 2px 4px 0 rgba(0,0,0,0.06)', borderRadius: '4px' }}>
-
 				{this.state.loading && (this.props.wishes.length === 0) && <WishLoading />}
 				{Object.keys(this.props.wishes).map(wishId =>
 					<WishCard
