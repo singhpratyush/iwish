@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <!--
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -19,15 +19,47 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <link rel="shortcut icon" href="%PUBLIC_URL%/icon.png">
-    <title>IWISH that too</title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-    <!--
+  <title>What’s your wish?</title>
+
+  <meta name="theme-color" content="#B3E5FC" />
+
+  <!-- Primary Meta Tags -->
+  <title>Make a wish and see who wishes that too.</title>
+  <meta name="title" content="Make a wish and see who wishes that too.">
+  <meta name="description" content="On iwish, you can make a wish. And see who wishes that too." />
+  <meta name="keywords" content="wish wishes, share your wish, I wish, paypal, twitter, I wish that too, upwish" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://iwish.thexyz.app">
+  <meta property="og:title" content="Make a wish and see who wishes that too.">
+  <meta property="og:description" content="On iwish, you can make a wish. And see who wishes that too.">
+  <meta property="og:image" content="https://iwish.thexyz.app/web_preview.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://iwish.thexyz.app">
+  <meta property="twitter:title" content="Make a wish and see who wishes that too.">
+  <meta property="twitter:description" content="On iwish, you can make a wish. And see who wishes that too.">
+  <meta property="twitter:image" content="https://iwish.thexyz.app/web_preview.jpg">
+
+  <!-- Extra customization -->
+  <!-- icon in the highest resolution we need it for -->
+  <link rel="icon" sizes="192x192" href="/icons/icon-192x192.png">
+  <!-- reuse same icon for Safari -->
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+  <link rel="apple-touch-startup-image" href="/icons/icon-192x192.png">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="theme-color" content="#B3E5FC">
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -37,450 +69,511 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <style>
-            /*! UIkit 3.0.0-beta.42 | http://www.getuikit.com | (c) 2014 - 2017 YOOtheme | MIT License */
-        /* ========================================================================
+  <style>
+    /*! UIkit 3.0.0-beta.42 | http://www.getuikit.com | (c) 2014 - 2017 YOOtheme | MIT License */
+    /* ========================================================================
           Component: Base
         ========================================================================== */
-        /*
+    /*
         * 1. Set `font-size` to support `rem` units
         *    Not using `font` property because a leading hyphen (e.g. -apple-system) causes the font to break in IE11 and Edge
         * 2. Prevent adjustments of font size after orientation changes in iOS.
         * 3. Style
         */
-        html {
-          /* 1 */
-          font-family: 'Open Sans', sans-serif;
-          font-size: 16px;
-          font-weight: normal;
-          line-height: 1.5;
-          /* 2 */
-          -webkit-text-size-adjust: 100%;
-          /* 3 */
-          background: #faffff;
-          color: #666;
-        }
-        /*
+    html {
+      /* 1 */
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.5;
+      /* 2 */
+      -webkit-text-size-adjust: 100%;
+      /* 3 */
+      background: #faffff;
+      color: #666;
+    }
+
+    /*
         * Remove the margin in all browsers.
         */
-        body {
-          margin: 0;
-          min-height: 100%;
-          position: relative;
-          padding-bottom: 88px;
-          overflow-y: scroll;
-        }
-        /* Links
+    body {
+      margin: 0;
+      min-height: 100%;
+      position: relative;
+      padding-bottom: 88px;
+      overflow-y: scroll;
+    }
+
+    /* Links
         ========================================================================== */
-        /*
+    /*
         * Remove gaps in links underline in iOS 8+ and Safari 8+.
         */
-        a {
-          -webkit-text-decoration-skip: objects;
-        }
-        /*
+    a {
+      -webkit-text-decoration-skip: objects;
+    }
+
+    /*
         * Remove the outline on focused links when they are also active or hovered
         */
-        a:active,
-        a:hover {
-          outline: none;
-        }
-        /*
+    a:active,
+    a:hover {
+      outline: none;
+    }
+
+    /*
         * Style
         */
-        a,
-        .uk-link {
-          /* color: #1e87f0; */
-          text-decoration: none;
-          cursor: pointer;
-        }
-        a:hover,
-        .uk-link:hover {
-          /* color: #0f6ecd;
+    a,
+    .uk-link {
+      /* color: #1e87f0; */
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    a:hover,
+    .uk-link:hover {
+      /* color: #0f6ecd;
           text-decoration: underline; */
-        }
-        /* Text-level semantics
+    }
+
+    /* Text-level semantics
         ========================================================================== */
-        /*
+    /*
         * 1. Remove the bottom border in Chrome 57-.
         * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
         */
-        abbr[title] {
-          /* 1 */
-          border-bottom: none;
-          /* 2 */
-          text-decoration: underline;
-          text-decoration: underline dotted;
-        }
-        /*
+    abbr[title] {
+      /* 1 */
+      border-bottom: none;
+      /* 2 */
+      text-decoration: underline;
+      text-decoration: underline dotted;
+    }
+
+    /*
         * Add the correct font weight in Chrome, Edge, and Safari.
         */
-        b,
-        strong {
-          font-weight: bolder;
-        }
-        /*
+    b,
+    strong {
+      font-weight: bolder;
+    }
+
+    /*
         * 1. Consolas has a better baseline in running text compared to `Courier`
         * 2. Correct the odd `em` font sizing in all browsers.
         * 3. Style
         */
-        :not(pre) > code,
-        :not(pre) > kbd,
-        :not(pre) > samp {
-          /* 1 */
-          font-family: Consolas, monaco, monospace;
-          /* 2 */
-          font-size: 0.875rem;
-          /* 3 */
-          color: #f0506e;
-          white-space: nowrap;
-          padding: 2px 6px;
-          background: #f8f8f8;
-        }
-        /*
+    :not(pre)>code,
+    :not(pre)>kbd,
+    :not(pre)>samp {
+      /* 1 */
+      font-family: Consolas, monaco, monospace;
+      /* 2 */
+      font-size: 0.875rem;
+      /* 3 */
+      color: #f0506e;
+      white-space: nowrap;
+      padding: 2px 6px;
+      background: #f8f8f8;
+    }
+
+    /*
         * Emphasize
         */
-        em {
-          color: #f0506e;
-        }
-        /*
+    em {
+      color: #f0506e;
+    }
+
+    /*
         * Insert
         */
-        ins {
-          background: #ffd;
-          color: #666;
-          text-decoration: none;
-        }
-        /*
+    ins {
+      background: #ffd;
+      color: #666;
+      text-decoration: none;
+    }
+
+    /*
         * Mark
         */
-        mark {
-          background: #ffd;
-          color: #666;
-        }
-        /*
+    mark {
+      background: #ffd;
+      color: #666;
+    }
+
+    /*
         * Quote
         */
-        q {
-          font-style: italic;
-        }
-        /*
+    q {
+      font-style: italic;
+    }
+
+    /*
         * Add the correct font size in all browsers.
         */
-        small {
-          font-size: 80%;
-        }
-        /*
+    small {
+      font-size: 80%;
+    }
+
+    /*
         * Prevents `sub` and `sup` affecting `line-height` in all browsers.
         */
-        sub,
-        sup {
-          font-size: 75%;
-          line-height: 0;
-          position: relative;
-          vertical-align: baseline;
-        }
-        sup {
-          top: -0.5em;
-        }
-        sub {
-          bottom: -0.25em;
-        }
-        /* Embedded content
+    sub,
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+    }
+
+    sup {
+      top: -0.5em;
+    }
+
+    sub {
+      bottom: -0.25em;
+    }
+
+    /* Embedded content
         ========================================================================== */
-        /*
+    /*
         * Remove the gap between embedded content and the bottom of their containers.
         */
-        audio,
-        canvas,
-        iframe,
-        img,
-        svg,
-        video {
-          vertical-align: middle;
-        }
-        /*
+    audio,
+    canvas,
+    iframe,
+    img,
+    svg,
+    video {
+      vertical-align: middle;
+    }
+
+    /*
         * Responsiveness
         * 1. Set a maximum width
         * 2. Auto scale the height. Only needed if `height` attribute is present
         * 2. Corrects `max-width` behavior if padding and border are used
         */
-        audio,
-        canvas,
-        img,
-        video {
-          /* 1 */
-          max-width: 100%;
-          /* 2 */
-          height: auto;
-          /* 3 */
-          box-sizing: border-box;
-        }
-        /*
+    audio,
+    canvas,
+    img,
+    video {
+      /* 1 */
+      max-width: 100%;
+      /* 2 */
+      height: auto;
+      /* 3 */
+      box-sizing: border-box;
+    }
+
+    /*
         * Hide the overflow in IE.
         */
-        svg:not(:root) {
-          overflow: hidden;
-        }
-        /* Block elements
+    svg:not(:root) {
+      overflow: hidden;
+    }
+
+    /* Block elements
         ========================================================================== */
-        /*
+    /*
         * Margins
         */
-        p,
-        ul,
-        ol,
-        dl,
-        pre,
-        address,
-        fieldset,
-        figure {
-          margin: 0 0 20px 0;
-        }
-        /* Add margin if adjacent element */
-        * + p,
-        * + ul,
-        * + ol,
-        * + dl,
-        * + pre,
-        * + address,
-        * + fieldset,
-        * + figure {
-          margin-top: 20px;
-        }
-        /* Headings
+    p,
+    ul,
+    ol,
+    dl,
+    pre,
+    address,
+    fieldset,
+    figure {
+      margin: 0 0 20px 0;
+    }
+
+    /* Add margin if adjacent element */
+    *+p,
+    *+ul,
+    *+ol,
+    *+dl,
+    *+pre,
+    *+address,
+    *+fieldset,
+    *+figure {
+      margin-top: 20px;
+    }
+
+    /* Headings
         ========================================================================== */
-        h1,
-        .uk-h1,
-        h2,
-        .uk-h2,
-        h3,
-        .uk-h3,
-        h4,
-        .uk-h4,
-        h5,
-        .uk-h5,
-        h6,
-        .uk-h6 {
-          margin: 0 0 20px 0;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-          font-weight: normal;
-          color: #333;
-          text-transform: none;
-        }
-        /* Add margin if adjacent element */
-        * + h1,
-        * + .uk-h1,
-        * + h2,
-        * + .uk-h2,
-        * + h3,
-        * + .uk-h3,
-        * + h4,
-        * + .uk-h4,
-        * + h5,
-        * + .uk-h5,
-        * + h6,
-        * + .uk-h6 {
-          margin-top: 40px;
-        }
-        /*
+    h1,
+    .uk-h1,
+    h2,
+    .uk-h2,
+    h3,
+    .uk-h3,
+    h4,
+    .uk-h4,
+    h5,
+    .uk-h5,
+    h6,
+    .uk-h6 {
+      margin: 0 0 20px 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-weight: normal;
+      color: #333;
+      text-transform: none;
+    }
+
+    /* Add margin if adjacent element */
+    *+h1,
+    *+.uk-h1,
+    *+h2,
+    *+.uk-h2,
+    *+h3,
+    *+.uk-h3,
+    *+h4,
+    *+.uk-h4,
+    *+h5,
+    *+.uk-h5,
+    *+h6,
+    *+.uk-h6 {
+      margin-top: 40px;
+    }
+
+    /*
         * Sizes
         */
-        h1,
-        .uk-h1 {
-          font-size: 2.625rem;
-          line-height: 1.2;
-        }
-        h2,
-        .uk-h2 {
-          font-size: 2rem;
-          line-height: 1.3;
-        }
-        h3,
-        .uk-h3 {
-          font-size: 1.5rem;
-          line-height: 1.4;
-        }
-        h4,
-        .uk-h4 {
-          font-size: 1.25rem;
-          line-height: 1.4;
-        }
-        h5,
-        .uk-h5 {
-          font-size: 16px;
-          line-height: 1.4;
-        }
-        h6,
-        .uk-h6 {
-          font-size: 0.875rem;
-          line-height: 1.4;
-        }
-        /* Lists
+    h1,
+    .uk-h1 {
+      font-size: 2.625rem;
+      line-height: 1.2;
+    }
+
+    h2,
+    .uk-h2 {
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+
+    h3,
+    .uk-h3 {
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+
+    h4,
+    .uk-h4 {
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+
+    h5,
+    .uk-h5 {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    h6,
+    .uk-h6 {
+      font-size: 0.875rem;
+      line-height: 1.4;
+    }
+
+    /* Lists
         ========================================================================== */
-        ul,
-        ol {
-          padding-left: 30px;
-        }
-        /*
+    ul,
+    ol {
+      padding-left: 30px;
+    }
+
+    /*
         * Reset margin for nested lists
         */
-        ul > li > ul,
-        ul > li > ol,
-        ol > li > ol,
-        ol > li > ul {
-          margin: 0;
-        }
-        /* Description lists
+    ul>li>ul,
+    ul>li>ol,
+    ol>li>ol,
+    ol>li>ul {
+      margin: 0;
+    }
+
+    /* Description lists
         ========================================================================== */
-        dt {
-          font-weight: bold;
-        }
-        dd {
-          margin-left: 0;
-        }
-        /* Horizontal rules
+    dt {
+      font-weight: bold;
+    }
+
+    dd {
+      margin-left: 0;
+    }
+
+    /* Horizontal rules
         ========================================================================== */
-        /*
+    /*
         * 1. Add the correct box sizing and height in Firefox.
         * 2. Show the overflow in Edge and IE.
         * 3. Add the correct text-align in Edge and IE.
         * 4. Style
         */
-        hr,
-        .uk-hr {
-          /* 1 */
-          box-sizing: content-box;
-          height: 0;
-          /* 2 */
-          overflow: visible;
-          /* 3 */
-          text-align: inherit;
-          /* 4 */
-          margin: 0 0 20px 0;
-          border: 0;
-          border-top: 1px solid #e5e5e5;
-        }
-        /* Add margin if adjacent element */
-        * + hr,
-        * + .uk-hr {
-          margin-top: 20px;
-        }
-        /* Address
+    hr,
+    .uk-hr {
+      /* 1 */
+      box-sizing: content-box;
+      height: 0;
+      /* 2 */
+      overflow: visible;
+      /* 3 */
+      text-align: inherit;
+      /* 4 */
+      margin: 0 0 20px 0;
+      border: 0;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    /* Add margin if adjacent element */
+    *+hr,
+    *+.uk-hr {
+      margin-top: 20px;
+    }
+
+    /* Address
         ========================================================================== */
-        address {
-          font-style: normal;
-        }
-        /* Blockquotes
+    address {
+      font-style: normal;
+    }
+
+    /* Blockquotes
         ========================================================================== */
-        blockquote {
-          margin: 0 0 20px 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-          font-style: italic;
-          color: #333;
-        }
-        /* Add margin if adjacent element */
-        * + blockquote {
-          margin-top: 20px;
-        }
-        /*
+    blockquote {
+      margin: 0 0 20px 0;
+      font-size: 1.25rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: #333;
+    }
+
+    /* Add margin if adjacent element */
+    *+blockquote {
+      margin-top: 20px;
+    }
+
+    /*
         * Content
         */
-        blockquote p:last-of-type {
-          margin-bottom: 0;
-        }
-        blockquote footer {
-          margin-top: 10px;
-          font-size: 0.875rem;
-          line-height: 1.5;
-          color: #666;
-        }
-        blockquote footer::before {
-          content: "— ";
-        }
-        /* Preformatted text
+    blockquote p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    blockquote footer {
+      margin-top: 10px;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: #666;
+    }
+
+    blockquote footer::before {
+      content: "— ";
+    }
+
+    /* Preformatted text
         ========================================================================== */
-        /*
+    /*
         * 1. Contain overflow in all browsers.
         */
-        pre {
-          font: 0.875rem / 1.5 Consolas, monaco, monospace;
-          color: #666;
-          -moz-tab-size: 4;
-          tab-size: 4;
-          /* 1 */
-          overflow: auto;
-          padding: 10px;
-          border: 1px solid #e5e5e5;
-          border-radius: 3px;
-          background: #fff;
-        }
-        pre code {
-          font-family: Consolas, monaco, monospace;
-        }
-        /* Selection pseudo-element
+    pre {
+      font: 0.875rem / 1.5 Consolas, monaco, monospace;
+      color: #666;
+      -moz-tab-size: 4;
+      tab-size: 4;
+      /* 1 */
+      overflow: auto;
+      padding: 10px;
+      border: 1px solid #e5e5e5;
+      border-radius: 3px;
+      background: #fff;
+    }
+
+    pre code {
+      font-family: Consolas, monaco, monospace;
+    }
+
+    /* Selection pseudo-element
         ========================================================================== */
-        ::-moz-selection {
-          background: #39f;
-          color: #fff;
-          text-shadow: none;
-        }
-        ::selection {
-          background: #39f;
-          color: #fff;
-          text-shadow: none;
-        }
-        /* HTML5 elements
+    ::-moz-selection {
+      background: #39f;
+      color: #fff;
+      text-shadow: none;
+    }
+
+    ::selection {
+      background: #39f;
+      color: #fff;
+      text-shadow: none;
+    }
+
+    /* HTML5 elements
         ========================================================================== */
-        /*
+    /*
         * 1. Add the correct display in Edge, IE 10+, and Firefox.
         * 2. Add the correct display in IE.
         */
-        details,
-        main {
-          /* 2 */
-          display: block;
-        }
-        /*
+    details,
+    main {
+      /* 2 */
+      display: block;
+    }
+
+    /*
         * Add the correct display in all browsers.
         */
-        summary {
-          display: list-item;
-        }
-        /*
+    summary {
+      display: list-item;
+    }
+
+    /*
         * Add the correct display in IE.
         */
-        template {
-          display: none;
-        }
-        /* Iframe
+    template {
+      display: none;
+    }
+
+    /* Iframe
         ========================================================================== */
-        iframe {
-          border: 0;
-        }
-        /* Prevent the 300ms delay for touchscreen interactions
+    iframe {
+      border: 0;
+    }
+
+    /* Prevent the 300ms delay for touchscreen interactions
         ========================================================================== */
-        /*
+    /*
         * Most browsers prevent the 300ms delay automatically for sites that use the `width=device-width` property.
         * For Safari on iOS 9.3+, IE 11 and Edge on desktops and IE 11 on Windows Phone 8.1 it must be applied manually.
         */
-        a,
-        area,
-        button,
-        input,
-        label,
-        select,
-        summary,
-        textarea {
-          touch-action: manipulation;
-        }
+    a,
+    area,
+    button,
+    input,
+    label,
+    select,
+    summary,
+    textarea {
+      touch-action: manipulation;
+    }
 
-        h1, .uk-h1, h2, .uk-h2, h3, .uk-h3, h4, .uk-h4, h5, .uk-h5, h6, .uk-h6 {
-          font-family: 'Open Sans', sans-serif;
-        }
+    h1,
+    .uk-h1,
+    h2,
+    .uk-h2,
+    h3,
+    .uk-h3,
+    h4,
+    .uk-h4,
+    h5,
+    .uk-h5,
+    h6,
+    .uk-h6 {
+      font-family: 'Open Sans', sans-serif;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+</body>
 
-      </style>
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
-  </body>
 </html>
