@@ -123,12 +123,17 @@ class UserProfile extends React.Component {
 				</div>
 				<div className={[uikitStyles['uk-margin-top'], styles.wishList].join(' ')} style={{ backgroundColor: 'white' }}>
 					{this.state.loading && <WishLoading />}
-					{Object.keys(this.props.profileUser.wishes).map(key => <WishCard
-						key={key}
-						data={{ ...this.props.profileUser.wishes[key], id: key }}
-						auth={this.props.authState}
-						onDelete={deleteWish}
-					/>)}
+					{Object.keys(this.props.profileUser.wishes)
+						.sort((a, b) => this.props.profileUser.wishes[b].createdAt - this.props.profileUser.wishes[a].createdAt)
+						.map(key => (
+							<WishCard
+								key={key}
+								data={{ ...this.props.profileUser.wishes[key], id: key }}
+								auth={this.props.authState}
+								onDelete={deleteWish}
+							/>
+						))
+					}
 				</div>
 			</div>
 		</div>
