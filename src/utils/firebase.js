@@ -58,7 +58,7 @@ export const getTrendingWishes = () => {
 }
 
 export const getLatestWishes = () => {
-	return firebase.database().ref('/wishes/').orderByChild('createdAt').limitToFirst(50);
+	return firebase.database().ref('/wishes/').orderByChild('createdAt').limitToLast(50);
 }
 
 export const upwish = (wishId, authorUid, uid) => {
